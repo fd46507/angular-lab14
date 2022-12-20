@@ -3,15 +3,18 @@
   <mat-form-field appearance="outline">
     <mat-label>Nowe zadanie: </mat-label>
     <input matInput type="text" [(ngModel)]="title" #newTitle />
+    <mat-hint class="hints">Podaj nazwę nowego zadania</mat-hint>
   </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <mat-form-field appearance="outline">
     <mat-label>Termin: </mat-label>
     <input
       matInput
       [(ngModel)]="deadline"
-      type="date"
+      type="text"
       [matDatepicker]="picker"
     />
+    <mat-hint class="hints">Opcjonalna data wykonania</mat-hint>
     <mat-datepicker-toggle
       matSuffix
       [for]="picker"
@@ -19,6 +22,7 @@
     ></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <button
     mat-raised-button
     color="primary"

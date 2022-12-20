@@ -20,6 +20,9 @@ import { registerLocaleData } from '@angular/common';
 import { MatLuxonDateModule } from '@angular/material-luxon-adapter';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDateFnsModule } from '@angular/material-date-fns-adapter';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 // import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 // import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
@@ -40,6 +43,9 @@ registerLocaleData(pl);
     MatLuxonDateModule,
     MatNativeDateModule,
     MatDateFnsModule,
+    MatMomentDateModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
   ],
   declarations: [
     AppComponent,
