@@ -1,0 +1,11 @@
+/* Add application styles & imports to this file! */
+@import '@angular/material/prebuilt-themes/purple-green.css';
+
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.mat-app-background {
+  background-color: #303030;
+  color: #fff;
+}
