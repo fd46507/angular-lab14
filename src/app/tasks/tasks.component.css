@@ -2,3 +2,18 @@
   font-size: 11px;
   color: #ffffffb3;
 }
+
+.divs {
+  margin-bottom: 25px;
+  background-color: #424242;
+  height: 150px;
+}
+
+.ps {
+  margin: 10px;
+}
+
+.checkbox {
+  position: absolute;
+  right: 0;
+}

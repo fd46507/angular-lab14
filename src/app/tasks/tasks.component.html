@@ -33,6 +33,32 @@
   </button>
 </div>
 <br />
-<div id="newElements"></div>
+<div id="newElements" *ngFor="let task of tasks">
+  <mat-card class="divs">
+    <div class="divs" id="{{ task.id }}">
+      <mat-card-header>
+        <mat-card-subtitle> {{ task.deadline }} </mat-card-subtitle>
+        <mat-card-title class="ps">{{ task.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <mat-checkbox
+          class="checkbox"
+          labelPosition="before"
+          [checked]="isChecked"
+          (change)="onChange($event)"
+        >
+          Wykonane
+        </mat-checkbox>
+      </mat-card-actions>
+    </div>
+  </mat-card>
+</div>
 <br />
-<button type="button" (click)="archiveCompleted()">Archiwizuj wykonane</button>
+<button
+  mat-raised-button
+  disabled="true"
+  type="button"
+  (click)="archiveCompleted()"
+>
+  Archiwizuj wykonane
+</button>

@@ -12,6 +12,7 @@ export class TasksComponent implements OnInit {
   deadline?: Date;
   retrievedData: any;
   tasks: Array<Task> = new Array<Task>();
+  isChecked: boolean;
 
   constructor(private tasksService: TasksService) {}
 
@@ -30,6 +31,10 @@ export class TasksComponent implements OnInit {
     setTimeout(this.loadElements.bind(this, true), 50);
     this.title = null;
     this.deadline = null;
+  }
+
+  onChange(event) {
+    console.log(event.checked);
   }
 
   archiveCompleted() {

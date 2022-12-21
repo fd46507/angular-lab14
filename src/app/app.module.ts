@@ -23,6 +23,8 @@ import { MatDateFnsModule } from '@angular/material-date-fns-adapter';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
 // import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 // import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
@@ -46,6 +48,8 @@ registerLocaleData(pl);
     MatMomentDateModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatCheckboxModule,
+    MatCardModule,
   ],
   declarations: [
     AppComponent,
