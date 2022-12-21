@@ -1,3 +1,21 @@
 <h2>Zadania archiwalne</h2>
 <br />
-<div id="newElements"></div>
+<div id="newElements" *ngFor="let task of tasks">
+  <mat-card class="divs">
+    <div class="divs">
+      <mat-card-header>
+        <mat-card-subtitle> {{ task.deadline }} </mat-card-subtitle>
+        <mat-card-title class="ps">{{ task.title }}</mat-card-title>
+      </mat-card-header>
+        <button
+          class="button"
+          mat-raised-button
+          color="accent"
+          type="button"
+          (click)="delete(task)"
+        >
+          Usuń
+        </button>
+    </div>
+  </mat-card>
+</div>

@@ -45,7 +45,7 @@
           id="{{ task.id }}"
           class="checkbox"
           labelPosition="before"
-          [checked]="kurwa"
+          [checked]="selectedOptions(task)"
           (change)="switchTaskChanged($event)"
         >
           Wykonane
@@ -57,7 +57,8 @@
 <br />
 <button
   mat-raised-button
-  disabled="true"
+  disabled={{disabled}}
+  color="accent"
   type="button"
   (click)="archiveCompleted()"
 >

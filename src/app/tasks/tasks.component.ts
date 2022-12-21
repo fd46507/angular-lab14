@@ -12,8 +12,8 @@ export class TasksComponent implements OnInit {
   deadline?: Date;
   retrievedData: any;
   tasks: Array<Task> = new Array<Task>();
-  completed: boolean;
   public show = true;
+  disabled: boolean = true;
 
   constructor(private tasksService: TasksService) {}
 
@@ -29,26 +29,23 @@ export class TasksComponent implements OnInit {
     this.tasksService.post(newTask).subscribe((response) => {
       console.log(response);
     });
-    setTimeout(this.loadElements.bind(this, true), 50);
+    setTimeout(this.loadElements.bind(this, true), 100);
     this.title = null;
     this.deadline = null;
   }
 
   switchTaskChanged(event) {
-    console.log(event);
-    console.log(event.source.id);
-    console.log(event.isChecked);
-    console.log(typeof this.tasks[0].completed);
-    // let task: Task = this.tasks.find(
-    //   (task) => task.id === parseInt(event.source.id)
-    // );
-    // if (task.completed == true) {
-    //   task.completed = false;
-    // } else {
-    //   task.completed = true;
-    // }
-    // this.tasksService.put(task);
-    // setTimeout(this.loadElements.bind(this, true), 50);
+    let task: Task = this.tasks.find(
+      (task) => task.id === parseInt(event.source.id)
+    );
+    if (task.completed == true) {
+      task.completed = false;
+    } else {
+      task.completed = true;
+    }
+    this.tasksService.put(task);
+    setTimeout(this.loadElements.bind(this, true), 100);
+    setTimeout(this.checkCurrentStates.bind(this), 100);
   }
 
   archiveCompleted() {
@@ -58,22 +55,26 @@ export class TasksComponent implements OnInit {
         this.tasksService.put(this.tasks[i]);
       }
     }
-    setTimeout(this.loadElements.bind(this, true), 50);
+    setTimeout(this.loadElements.bind(this, true), 100);
   }
-
-  // private switchTaskChanged(task: Task) {
-  //   if (task.completed == true) {
-  //     task.completed = false;
-  //   } else {
-  //     task.completed = true;
-  //   }
-  //   this.tasksService.put(task);
-  //   setTimeout(this.loadElements.bind(this, true), 50);
-  // }
 
   loadElementsOnSite() {
     this.show = false;
     setTimeout(() => (this.show = true));
+  }
+
+  selectedOptions(task: Task) {
+    return task.completed;
+  }
+
+  checkCurrentStates() {
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (this.tasks[i].completed) {
+        this.disabled = false;
+        return;
+      }
+    }
+    this.disabled = true;
   }
 
   loadElements(reload: boolean = false) {
@@ -81,11 +82,12 @@ export class TasksComponent implements OnInit {
       this.tasks = data;
     });
     if (reload == true) {
-      this.loadElementsOnSite();
+      setTimeout(this.loadElementsOnSite.bind(this), 100);
     }
   }
 
   ngOnInit() {
     this.loadElements();
+    setTimeout(this.checkCurrentStates.bind(this), 200);
   }
 }
