@@ -35,17 +35,18 @@
 <br />
 <div id="newElements" *ngFor="let task of tasks">
   <mat-card class="divs">
-    <div class="divs" id="{{ task.id }}">
+    <div class="divs">
       <mat-card-header>
         <mat-card-subtitle> {{ task.deadline }} </mat-card-subtitle>
         <mat-card-title class="ps">{{ task.title }}</mat-card-title>
       </mat-card-header>
       <mat-card-actions>
         <mat-checkbox
+          id="{{ task.id }}"
           class="checkbox"
           labelPosition="before"
-          [checked]="isChecked"
-          (change)="onChange($event)"
+          [checked]="kurwa"
+          (change)="switchTaskChanged($event)"
         >
           Wykonane
         </mat-checkbox>
