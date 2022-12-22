@@ -9,7 +9,6 @@ import { ArchiveComponent } from './archive/archive.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -25,8 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
-// import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
-// import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 registerLocaleData(pl);
 
@@ -58,8 +55,6 @@ registerLocaleData(pl);
     NotFoundComponent,
   ],
   bootstrap: [AppComponent],
-  providers: [
-    // {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'always' },},
-  ],
+  providers: [],
 })
 export class AppModule {}
